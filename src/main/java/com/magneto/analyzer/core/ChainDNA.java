@@ -5,26 +5,36 @@ public class ChainDNA
 
 	private int sequenceLenght;
 	private char[] chain;
+
+	private int chainIndex;
 	
 	public ChainDNA(int chainLenght) 
 	{
 		this.chain = new char[chainLenght];
 		this.sequenceLenght = 4;
+		this.chainIndex = 0;
 	}
 	
 	public ChainDNA(int chainLenght, int sequenceLenght ) 
 	{
 		this.chain = new char[chainLenght];
 		this.sequenceLenght = sequenceLenght;
+		this.chainIndex = 0;
+	}
+	
+	public char[] getChain() 
+	{
+		return chain;
 	}
 
 	public void add(char aNitrogenBase) throws Exception 
 	{
 		this.checkIsNitrogenBase(aNitrogenBase);
-		this.chain[this.chain.length] = aNitrogenBase;
+		this.chain[this.chainIndex] = aNitrogenBase;
+		this.chainIndex++;
 	} 
 	
-	private boolean checkIsNitrogenBase(char aNitrogenBaseValue) throws Exception
+	public boolean checkIsNitrogenBase(char aNitrogenBaseValue) throws Exception
 	{
 		boolean isNitrogenBase = aNitrogenBaseValue == 'T';
 		isNitrogenBase |= aNitrogenBaseValue == 'A';

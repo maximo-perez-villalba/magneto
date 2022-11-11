@@ -61,17 +61,14 @@ public class Analyzer
 		int range = Math.floorDiv(dna.length,2);
 		for(int offset = 0; offset < range; offset++)
 		{
-			int length = (dna.length - offset) - 4;
 			ChainDNA chain = new ChainDNA(dna.length - offset);
-			
-			for(int row = offset, col = 0; row <= length; row++, col++) 
+			for(int row = offset, col = 0; col < dna.length - offset; row++, col++) 
 			{
 				chain.add(dna[row].charAt(col));
 			}
-			
 			if(chain.existsMutantSequence()) 
 			{
-				matches++;
+				matches++;				
 			}
 		}
 
@@ -80,14 +77,11 @@ public class Analyzer
 		 */
 		for(int offset = 1; offset < range; offset++)
 		{
-			int length = (dna.length - offset) - 4;
 			ChainDNA chain = new ChainDNA(dna.length - offset);
-			
-			for(int row = 0, col = offset; row <= length; row++, col++) 
+			for(int row = 0, col = offset; row < dna.length - offset; row++, col++) 
 			{
 				chain.add(dna[row].charAt(col));
 			}
-			
 			if(chain.existsMutantSequence()) 
 			{
 				matches++;
