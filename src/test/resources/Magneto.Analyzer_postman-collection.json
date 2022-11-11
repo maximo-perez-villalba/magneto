@@ -1,0 +1,144 @@
+{
+	"info": {
+		"_postman_id": "95848193-b074-4a50-9959-2d4440541ac4",
+		"name": "Magneto",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "24133022"
+	},
+	"item": [
+		{
+			"name": "Analyzer",
+			"item": [
+				{
+					"name": "isMutantTrue",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"DNA is mutant\", function () ",
+									"{",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "[\n    \"ATGCGA\",\n    \"CAGTGC\",\n    \"TTATGT\",\n    \"AGAAGG\",\n    \"CCCCTA\",\n    \"TCACTG\"\n]",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/api/mutant/",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"mutant",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "isMutantFalse",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"DNA is human\", function () ",
+									"{",
+									"    pm.response.to.have.status(403);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "[\n    \"ATGCAA\",\n    \"CGATGC\",\n    \"TTATCT\",\n    \"AGAAGG\",\n    \"CAGCTA\",\n    \"TCACTG\"\n]",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/api/mutant/",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"mutant",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "isMutantException",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"DNA sequence is wrong\", function () ",
+									"{",
+									"    pm.response.to.have.status(400);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "[\n    \"ATGCAA\",\n    \"CGATGC\",\n    \"TTATCT\",\n    \"AGAAGG\",\n    \"CAGCTA\",\n    \"TCACTM\"\n]",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/api/mutant/",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"mutant",
+								""
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
