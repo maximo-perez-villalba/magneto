@@ -76,3 +76,26 @@ El Analyzer se encuentra disponible a través de un servidor Rest API que expone
 1. Abrir Postman
 2. Cargar la colección de tests que se encuentra en [Magneto.Analyzer_postman-collection.json](/src/test/resources/Magneto.Analyzer_postman-collection.json)
 3. Correr la colección completa
+    
+<br>
+      
+## Documentación 
+Esta sección expone la documentación del core del servicio `Magento Analyzer` que se encuentra en el paquete `com.magneto.analyzer.core`.
+    
+El método `Analyzer.isMutant(String[] dna)` recibe en el argumento `dna` un arreglo con 6 Strings (matriz) y cada String tiene un largo de 6 caracteres, donde los caracteres solo pueden ser alguna de las bases nitrogendas: 'A','T','C','G'.         
+
+Para que un ADN sea declarado mutante debe contener al menos 3 cadenas, cuya composición contengan 4 bases nitrogenadas consecutivas iguales: "AAAA", "GGGG", "CCCC" o "TTTT". Estas cadenas dentro de la matriz pueden encontrarse en líneas horizontales, verticales o diagonales.   
+
+### Modelo de clases
+![Modelo de clases](/docs/class-diagram-analyzer.png)
+
+### Modelo de secuencia del caso de uso isMutant(String[] dna)
+
+El método para poder detectar si es un ADN mutante, primero recorre las lineas horizontales, luego las líneas verticales y por último las líneas diagonales.
+
+![Modelo de secuencia del caso de uso isMutant(String[] dna)](/docs/seuqence-diagram-analyzer-is-mutant.png)
+      
+<br>     
+<br>     
+     
+
