@@ -1,8 +1,7 @@
 # magneto
 Magneto Analyzer detecta si el ADN ingresado es humano o mutante.       
 
-El Analyzer se encuentra disponible a través de un servidor Rest API.      
-La API expone 2 operaciones:
+El Analyzer se encuentra disponible a través de un servidor Rest API que expone 2 operaciones:
 * [POST] /api/mutant/
   * body: con un arreglo que contiene 6 cadena de texto con bases nitrogenadas.
     ```json
@@ -56,18 +55,24 @@ La API expone 2 operaciones:
 - Postman 10
 
 ## Instalación
-1 Clonar este [repositorio](https://github.com/maximo-perez-villalba/magneto)     
+1. Clonar este [repositorio](https://github.com/maximo-perez-villalba/magneto)  
 
-2 Moverse al directorio magneto/
+2. Moverse al directorio magneto/
   ```bash
   cd magneto
   ```
-3 Instalar Magneto Analyzer
+3. Instalar Magneto Analyzer
   ```bash
   mvn install
   ```
-4 Lanzar servidor Rest en el port: 8080
+4. Lanzar servidor Rest en el port: 8080
   ```bash
   java -jar magneto.analyzer-<version>.jar
   ```
-
+    
+<br>
+      
+## Testeo del Rest API
+1. Abrir Postman
+2. Cargar la colección de tests que se encuentra en [Magneto.Analyzer_postman-collection.json](/src/test/resources/Magneto.Analyzer_postman-collection.json)
+3. Correr la colección completa
