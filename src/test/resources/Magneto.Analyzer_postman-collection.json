@@ -7,138 +7,887 @@
 	},
 	"item": [
 		{
-			"name": "Analyzer",
-			"item": [
+			"name": "isMutantTrue",
+			"event": [
 				{
-					"name": "isMutantTrue",
-					"event": [
-						{
-							"listen": "test",
-							"script": {
-								"exec": [
-									"pm.test(\"DNA is mutant\", function () ",
-									"{",
-									"    pm.response.to.have.status(200);",
-									"});"
-								],
-								"type": "text/javascript"
-							}
-						}
-					],
-					"request": {
-						"method": "POST",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "[\n    \"ATGCGA\",\n    \"CAGTGC\",\n    \"TTATGT\",\n    \"AGAAGG\",\n    \"CCCCTA\",\n    \"TCACTG\"\n]",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "localhost:8080/api/mutant/",
-							"host": [
-								"localhost"
-							],
-							"port": "8080",
-							"path": [
-								"api",
-								"mutant",
-								""
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "isMutantFalse",
-					"event": [
-						{
-							"listen": "test",
-							"script": {
-								"exec": [
-									"pm.test(\"DNA is human\", function () ",
-									"{",
-									"    pm.response.to.have.status(403);",
-									"});"
-								],
-								"type": "text/javascript"
-							}
-						}
-					],
-					"request": {
-						"method": "POST",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "[\n    \"ATGCAA\",\n    \"CGATGC\",\n    \"TTATCT\",\n    \"AGAAGG\",\n    \"CAGCTA\",\n    \"TCACTG\"\n]",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "localhost:8080/api/mutant/",
-							"host": [
-								"localhost"
-							],
-							"port": "8080",
-							"path": [
-								"api",
-								"mutant",
-								""
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "isMutantException",
-					"event": [
-						{
-							"listen": "test",
-							"script": {
-								"exec": [
-									"pm.test(\"DNA sequence is wrong\", function () ",
-									"{",
-									"    pm.response.to.have.status(400);",
-									"});"
-								],
-								"type": "text/javascript"
-							}
-						}
-					],
-					"request": {
-						"method": "POST",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "[\n    \"ATGCAA\",\n    \"CGATGC\",\n    \"TTATCT\",\n    \"AGAAGG\",\n    \"CAGCTA\",\n    \"TCACTM\"\n]",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "localhost:8080/api/mutant/",
-							"host": [
-								"localhost"
-							],
-							"port": "8080",
-							"path": [
-								"api",
-								"mutant",
-								""
-							]
-						}
-					},
-					"response": []
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"DNA is mutant\", function () ",
+							"{",
+							"    pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
 				}
-			]
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "[\n    \"ATGCGA\",\n    \"CAGTGC\",\n    \"TTATGT\",\n    \"AGAAGG\",\n    \"CCCCTA\",\n    \"TCACTG\"\n]",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/api/mutant/",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"mutant",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "isMutantFalse",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"DNA is human\", function () ",
+							"{",
+							"    pm.response.to.have.status(403);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "[\n    \"ATGCAA\",\n    \"CGATGC\",\n    \"TTATCT\",\n    \"AGAAGG\",\n    \"CAGCTA\",\n    \"TCACTG\"\n]",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/api/mutant/",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"mutant",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "isMutantException",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"DNA sequence is wrong\", function () ",
+							"{",
+							"    pm.response.to.have.status(400);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "[\n    \"ATGCAA\",\n    \"CGATGC\",\n    \"TTATCT\",\n    \"AGAAGG\",\n    \"CAGCTA\",\n    \"TCACTM\"\n]",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/api/mutant/",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"mutant",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "isMutantTrue Copy",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"DNA is mutant\", function () ",
+							"{",
+							"    pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "[\n    \"ATGCGA\",\n    \"CAGTGC\",\n    \"TTATGT\",\n    \"AGAAGG\",\n    \"CCCCTA\",\n    \"TCACTG\"\n]",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/api/mutant/",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"mutant",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "isMutantFalse Copy",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"DNA is human\", function () ",
+							"{",
+							"    pm.response.to.have.status(403);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "[\n    \"ATGCAA\",\n    \"CGATGC\",\n    \"TTATCT\",\n    \"AGAAGG\",\n    \"CAGCTA\",\n    \"TCACTG\"\n]",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/api/mutant/",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"mutant",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "isMutantTrue Copy 2",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"DNA is mutant\", function () ",
+							"{",
+							"    pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "[\n    \"ATGCGA\",\n    \"CAGTGC\",\n    \"TTATGT\",\n    \"AGAAGG\",\n    \"CCCCTA\",\n    \"TCACTG\"\n]",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/api/mutant/",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"mutant",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "isMutantFalse Copy 2",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"DNA is human\", function () ",
+							"{",
+							"    pm.response.to.have.status(403);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "[\n    \"ATGCAA\",\n    \"CGATGC\",\n    \"TTATCT\",\n    \"AGAAGG\",\n    \"CAGCTA\",\n    \"TCACTG\"\n]",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/api/mutant/",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"mutant",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "isMutantTrue Copy 3",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"DNA is mutant\", function () ",
+							"{",
+							"    pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "[\n    \"ATGCGA\",\n    \"CAGTGC\",\n    \"TTATGT\",\n    \"AGAAGG\",\n    \"CCCCTA\",\n    \"TCACTG\"\n]",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/api/mutant/",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"mutant",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "isMutantFalse Copy 3",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"DNA is human\", function () ",
+							"{",
+							"    pm.response.to.have.status(403);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "[\n    \"ATGCAA\",\n    \"CGATGC\",\n    \"TTATCT\",\n    \"AGAAGG\",\n    \"CAGCTA\",\n    \"TCACTG\"\n]",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/api/mutant/",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"mutant",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "isMutantFalse Copy 4",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"DNA is human\", function () ",
+							"{",
+							"    pm.response.to.have.status(403);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "[\n    \"ATGCAA\",\n    \"CGATGC\",\n    \"TTATCT\",\n    \"AGAAGG\",\n    \"CAGCTA\",\n    \"TCACTG\"\n]",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/api/mutant/",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"mutant",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "isMutantFalse Copy 5",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"DNA is human\", function () ",
+							"{",
+							"    pm.response.to.have.status(403);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "[\n    \"ATGCAA\",\n    \"CGATGC\",\n    \"TTATCT\",\n    \"AGAAGG\",\n    \"CAGCTA\",\n    \"TCACTG\"\n]",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/api/mutant/",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"mutant",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "isMutantTrue Copy 4",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"DNA is mutant\", function () ",
+							"{",
+							"    pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "[\n    \"ATGCGA\",\n    \"CAGTGC\",\n    \"TTATGT\",\n    \"AGAAGG\",\n    \"CCCCTA\",\n    \"TCACTG\"\n]",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/api/mutant/",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"mutant",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "isMutantFalse Copy 6",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"DNA is human\", function () ",
+							"{",
+							"    pm.response.to.have.status(403);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "[\n    \"ATGCAA\",\n    \"CGATGC\",\n    \"TTATCT\",\n    \"AGAAGG\",\n    \"CAGCTA\",\n    \"TCACTG\"\n]",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/api/mutant/",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"mutant",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Stats",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"let stats = pm.response.json();",
+							"pm.test(\"Mutant Proportion stats\", function () ",
+							"{",
+							"    pm.expect(stats.ratio).to.eql(0.7142857142857143);",
+							"});",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/api/mutant/stats",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"mutant",
+						"stats"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Stats Copy",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"let stats = pm.response.json();",
+							"pm.test(\"Mutant Proportion stats\", function () ",
+							"{",
+							"    pm.expect(stats.ratio).to.eql(0.7142857142857143);",
+							"});",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/api/mutant/stats",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"mutant",
+						"stats"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Stats Copy 2",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"let stats = pm.response.json();",
+							"pm.test(\"Mutant Proportion stats\", function () ",
+							"{",
+							"    pm.expect(stats.ratio).to.eql(0.7142857142857143);",
+							"});",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/api/mutant/stats",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"mutant",
+						"stats"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Stats Copy 3",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"let stats = pm.response.json();",
+							"pm.test(\"Mutant Proportion stats\", function () ",
+							"{",
+							"    pm.expect(stats.ratio).to.eql(0.7142857142857143);",
+							"});",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/api/mutant/stats",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"mutant",
+						"stats"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Stats Copy 4",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"let stats = pm.response.json();",
+							"pm.test(\"Mutant Proportion stats\", function () ",
+							"{",
+							"    pm.expect(stats.ratio).to.eql(0.7142857142857143);",
+							"});",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/api/mutant/stats",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"mutant",
+						"stats"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Stats Copy 5",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"let stats = pm.response.json();",
+							"pm.test(\"Mutant Proportion stats\", function () ",
+							"{",
+							"    pm.expect(stats.ratio).to.eql(0.7142857142857143);",
+							"});",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/api/mutant/stats",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"mutant",
+						"stats"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Stats Copy 6",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"let stats = pm.response.json();",
+							"pm.test(\"Mutant Proportion stats\", function () ",
+							"{",
+							"    pm.expect(stats.ratio).to.eql(0.7142857142857143);",
+							"});",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/api/mutant/stats",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"mutant",
+						"stats"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Stats Copy 7",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"let stats = pm.response.json();",
+							"pm.test(\"Mutant Proportion stats\", function () ",
+							"{",
+							"    pm.expect(stats.ratio).to.eql(0.7142857142857143);",
+							"});",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/api/mutant/stats",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"mutant",
+						"stats"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Stats Copy 8",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"let stats = pm.response.json();",
+							"pm.test(\"Mutant Proportion stats\", function () ",
+							"{",
+							"    pm.expect(stats.ratio).to.eql(0.7142857142857143);",
+							"});",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/api/mutant/stats",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"mutant",
+						"stats"
+					]
+				}
+			},
+			"response": []
 		}
 	]
 }

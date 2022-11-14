@@ -1,5 +1,8 @@
 package com.magneto.analyzer.core;
 
+import org.springframework.stereotype.Component;
+
+@Component
 public class Analyzer 
 {
 	
