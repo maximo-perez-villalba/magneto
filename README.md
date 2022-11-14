@@ -1,4 +1,4 @@
-# magneto
+# Magneto Analyzer
 Magneto Analyzer detecta si el ADN ingresado es humano o mutante.       
 
 El Analyzer se encuentra disponible a través de un servidor Rest API que expone 2 operaciones:
@@ -81,10 +81,15 @@ El Analyzer se encuentra disponible a través de un servidor Rest API que expone
       
 ## Documentación 
 Esta sección expone la documentación del core del servicio `Magento Analyzer` que se encuentra en el paquete `com.magneto.analyzer.core`.
-    
-El método `Analyzer.isMutant(String[] dna)` recibe en el argumento `dna` un arreglo con 6 Strings (matriz) y cada String tiene un largo de 6 caracteres, donde los caracteres solo pueden ser alguna de las bases nitrogendas: 'A','T','C','G'.         
 
-Para que un ADN sea declarado mutante debe contener al menos 3 cadenas, cuya composición contengan 4 bases nitrogenadas consecutivas iguales: "AAAA", "GGGG", "CCCC" o "TTTT". Estas cadenas dentro de la matriz pueden encontrarse en líneas horizontales, verticales o diagonales.   
+    
+El método `Analyzer.isMutant(String[] dna)` es el método principal que recibe en el argumento `dna` un arreglo con 6 Strings (matriz), donde cada String tiene un largo de 6 caracteres, donde los caracteres solo pueden ser alguna de las bases nitrogendas: 'A','T','C','G'.         
+
+> Para que un ADN sea declarado mutante debe contener al menos 3 cadenas, cuya composición contengan 4 bases nitrogenadas consecutivas iguales: "AAAA", "GGGG", "CCCC" o "TTTT". Estas cadenas dentro de la matriz pueden encontrarse en líneas horizontales, verticales o diagonales.   
+
+El método parsea la matriz de 6x6 que representa el ADN humano recibido como argumento de la variable `dna`. Recorre y analiza la matriz línea por línea, contando las cadenas que contengan 4 bases nitrogenadas consecutivas iguales. Si contabiliza más de 3 cadenas el ADN es mutante.     
+    
+    
 
 ### Modelo de clases
 ![Modelo de clases](/docs/class-diagram-analyzer.png)
@@ -96,6 +101,10 @@ El método para poder detectar si es un ADN mutante, primero recorre las lineas 
 ![Modelo de secuencia del caso de uso isMutant(String[] dna)](/docs/seuqence-diagram-analyzer-is-mutant.png)
       
 <br>     
+     
+### Testeo
+Para testear el paquete `com.magneto.analyzer.core` ejecutar los tests escritos en `/test/java/com/magneto/analyzer/core/`.
+      
+<br>     
 <br>     
      
-
