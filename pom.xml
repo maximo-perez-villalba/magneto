@@ -9,9 +9,9 @@
 	</parent>
 	<groupId>com.magneto</groupId>
 	<artifactId>magneto.analyzer</artifactId>
-	<version>0.6.0</version>
+	<version>1.0.0</version>
 	<name>magneto</name>
-	<description>Magneto quiere reclutar la mayor cantidad de mutantes para poder luchar contra los X-Men. </description>
+	<description>Magneto Analyzer detecta si el ADN ingresado es humano o mutante.</description>
 	<properties>
 		<java.version>17</java.version>
 	</properties>

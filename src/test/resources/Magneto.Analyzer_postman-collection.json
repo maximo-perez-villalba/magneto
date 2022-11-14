@@ -1,7 +1,7 @@
 {
 	"info": {
 		"_postman_id": "95848193-b074-4a50-9959-2d4440541ac4",
-		"name": "Magneto",
+		"name": "Magneto Analyzer",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
 		"_exporter_id": "24133022"
 	},
@@ -573,6 +573,7 @@
 					"script": {
 						"exec": [
 							"let stats = pm.response.json();",
+							"console.log(stats);",
 							"pm.test(\"Mutant Proportion stats\", function () ",
 							"{",
 							"    pm.expect(stats.ratio).to.eql(0.7142857142857143);",
