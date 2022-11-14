@@ -22,6 +22,9 @@ public class DNAservice
 	@Autowired
 	private DNARepository repository;
 	
+	/**
+	 * Cachea las estadísticas. 
+	 */
 	private static DNAStats stats = null;
 	
 	@Transactional
